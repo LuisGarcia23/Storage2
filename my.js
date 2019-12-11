@@ -6,7 +6,7 @@ function onDeviceReady() {
 var db = window.sqlitePlugin.openDatabase({name: "my.db"});
 show();
 db.transaction(function(tx) {
-tx.executeSql('CREATE TABLE IF NOT EXISTS mydata (id integer primary key, name text, nume text)');
+tx.executeSql('CREATE TABLE IF NOT EXISTS mydata (id integer primary key, name text, nume integer)');
 });
 
 //<!--Method to insert new row in the database-->
