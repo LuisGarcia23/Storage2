@@ -6,7 +6,7 @@ function onDeviceReady() {
 var db = window.sqlitePlugin.openDatabase({name: "my.db"});
 show();
 db.transaction(function(tx) {
-tx.executeSql('CREATE TABLE IF NOT EXISTS mydata (id integer primary key, name text, numero text)');
+tx.executeSql('CREATE TABLE IF NOT EXISTS mydata (id integer primary key, name text, nume text)');
 });
 
 //<!--Method to insert new row in the database-->
@@ -14,7 +14,7 @@ $(document).on('click', '#creat', function(){
 var name = $("#name").val();
 var num = $("#numero").val();
 db.transaction(function(transaction) {
-var executeQuery = "INSERT INTO mydata (name, numero) VALUES (?,?)";
+var executeQuery = "INSERT INTO mydata (name, nume) VALUES (?,?)";
 transaction.executeSql(executeQuery, [name,num]
 , function(tx, result) {
 show();
@@ -77,7 +77,7 @@ var name = $("#uname").val();
 var num = $("#unumero").val();
 db.transaction(function(transaction) {
 var executeQuery = "";
-transaction.executeSql("UPDATE mydata SET name=?, numero=? WHERE id=?", [name,num,id],
+transaction.executeSql("UPDATE mydata SET name=?, nume=? WHERE id=?", [name,num,id],
 function(tx, result) {alert('Updated successfully');
 show();
 },
