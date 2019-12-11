@@ -46,7 +46,7 @@ key = results.rows.item(i).name;
 id = results.rows.item(i).id;
 
 //<!--Displaying all rows of the database in the table-->
-pair += "<tr><td><center>"+id+"</center></td><td><center>"+key+"</center></td><td><center>"+results.rows.item(i).num+"</center></td><td><a class=\"update\" href=\"#myPopupDialog\" data-custom="+"'"+ id+ "'" +"data-rel=\"popup\" data-position-to=\"window\" data-transition=\"pop\"><center><i class='fa fa-pencil-square-o'></i></center></a></td><td><a id=\"delete\" data=\""+id+"\"><center><i class='fa fa-trash'></i></center></a></td></tr>";
+pair += "<tr><td><center>"+id+"</center></td><td><center>"+key+"</center></td><td><center>"+results.rows.item(i).nume+"</center></td><td><a class=\"update\" href=\"#myPopupDialog\" data-custom="+"'"+ id+ "'" +"data-rel=\"popup\" data-position-to=\"window\" data-transition=\"pop\"><center><i class='fa fa-pencil-square-o'></i></center></a></td><td><a id=\"delete\" data=\""+id+"\"><center><i class='fa fa-trash'></i></center></a></td></tr>";
 }
 if (pair == "<tr><th>Name</th><th>Numero</th></tr>") {
 pair += "<tr><td><i>empty</i></td><td><i>empty</i></td></tr>";
@@ -88,7 +88,7 @@ $(document).on('click', '.update', function(){
 var id = $(this).attr('data-custom');
 $("#id").val(id);
 db.transaction(function(transaction) {
-transaction.executeSql('SELECT name,numero FROM mydata where id=?', [id], function (tx, results) {
+transaction.executeSql('SELECT name,nume FROM mydata where id=?', [id], function (tx, results) {
 var name = results.rows.item(0).name;
 var num = results.rows.item(0).num;
 $("#uname").val(name);
