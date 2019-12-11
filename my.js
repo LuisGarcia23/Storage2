@@ -90,7 +90,7 @@ $("#id").val(id);
 db.transaction(function(transaction) {
 transaction.executeSql('SELECT name,nume FROM mydata where id=?', [id], function (tx, results) {
 var name = results.rows.item(0).name;
-var num = results.rows.item(0).num;
+var num = results.rows.item(0).nume;
 $("#uname").val(name);
 $("#unumero").val(num);
 },
